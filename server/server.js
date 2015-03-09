@@ -1,14 +1,23 @@
 var express = require('express');
-var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost:27017/mvp');
+var handler = require('./lib/request-handler');
 
 var app = express();
 
-module.exports.app = app;
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-  res.send('This is a server response.');
-});
 
-app.listen(5309);
+app.get('/', handler.renderIndex);
+
+app.get('/login', handler.loginUserForm);
+app.post('/login', handler.loginUser);
+app.get('/logout', handler.logoutUser);
+
+app.get('/signup', handler.signupUserForm);
+app.post('/signup', handler.signupUser);
+
+module.exports = app;
