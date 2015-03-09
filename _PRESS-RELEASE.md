@@ -1,4 +1,4 @@
-# Project Name #
+# MVP Solo Project #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,29 +16,29 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
+## Kalev Roomann-Kurrik's App for Finding Places That Are Really Cool ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
 
-## Sub-Heading ##
+## Find and share your favorite bars and restaurants with your friends and see their recommendations. ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This app lets you manage a list of your favorite bars and restaurants, and see which bars and restaurants your friends like. Each user has a list of their favorite places that they can manage with the help of the Google Places API. By adding friends to your friends list you can see share your recommendations with them, and also see which places that they recommend.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  Friends usually let each other know which places they like to eat and drink at based on word of mouth, but sometimes when you thinking of places to go to you don't have access to ask your friends where they recommend going to. Wouldn't it be great if you could have a list of your friends' favorite places to go to that you could pull up at any time?
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  With this app you can have that list of recommended places at your fingertips 24/7. And any new places that your friends go to, they can add to their list of favorites, and you'll see it added to your list of favorites immediately.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "Who are you, and how did you get into my office?" - Kalev Roomann-Kurrik 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Download the app from Kalev Roomann-Kurrik's App Store and create an account. Once you're logged in, you can quickly and easily look up places to add to your list of favorites, add friends to your friends list, and see all of your friends' favorite places.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Before I used this app, I would spend days trying to figure out where I should go to eat. I became frozen in a state of indecision, and my life became a waking nightmare, but with this app I can finally have a normal life again. " - Guy Incognito 
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  Kalev Roomann-Kurrik's App for Finding Places That Are Really Cool is the only app that you need in your life. Delete all of the other apps that your currently use, and download my app today!
