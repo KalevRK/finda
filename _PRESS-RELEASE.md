@@ -17,10 +17,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Kalev Roomann-Kurrik's App for Finding Places That Are Really Cool ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-
-## Find and share your favorite bars and restaurants with your friends and see their recommendations. ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Find and share your favorite bars and restaurants with your friends and see their recommendations.
 
 ## Summary ##
   This app lets you manage a list of your favorite bars and restaurants, and see which bars and restaurants your friends like. Each user has a list of their favorite places that they can manage with the help of the Google Places API. By adding friends to your friends list you can see share your recommendations with them, and also see which places that they recommend.
