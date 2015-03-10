@@ -63,18 +63,25 @@ function mainController($scope, $http) {
       $scope.incrementVotes = function(place) {
         place.votes++;
 
-        console.log('/api/places/' + place._id);
-
-
+        // update the vote count on the place
         $http.put('/api/places/' + place._id, place)
-        //       .success(function(data) {
-        //         $scope.places = data;
-        //         console.log(data);
-        //       })
-        //       .error(function(data) {
-        //         console.log('Error: ' + data);
-        //       });
+               .success(function(data) {
+                 $scope.places = data;
+                 console.log(data);
+               })
+               .error(function(data) {
+                 console.log('Error: ' + data);
+               });
 
+        // retrieve all of the places again from the database
+        $http.get('/api/places')
+              .success(function(data) {
+                $scope.places = data;
+                console.log(data);
+              })
+              .error(function(data) {
+                 console.log('Error: ' + data);
+               });
       }
 };
 
