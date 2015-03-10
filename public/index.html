@@ -6,21 +6,14 @@
     <title>Kalev Roomann-Kurrik's App for Finding Really Cool Places</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <style>
-      html { overflow-y:scroll; }
-      body { padding-top:50px; }
-      #todo-list { margin-bottom:30px; }
-    </style>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<PLACEHOLDER>"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script src="core.js"></script>
-    <script src="../maps.js"></script>
   </head>
   <body ng-controller="mainController">
     <div class="container">
-      
+
         <!-- Header -->
         <div class="jumbotron text-center narrowjumbo">
           <h1>Kalev Roomann-Kurrik's App for Finding Really Cool Places</h1>
@@ -50,13 +43,11 @@
               </label>
             </div>
           </div>
-      
+
           <!-- Map View -->
           <div id="map-view" class="col-sm-6">
-            <div id="map">
-            </div>
           </div>
-        </div>
+      
     </div>
 
   </body>

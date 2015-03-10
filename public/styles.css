@@ -1,4 +1,27 @@
+html { 
+    overflow-y:scroll; 
+}
+
+body {
+    padding-top:50px;
+}
+
 .jumbotron.text-center.narrowjumbo {
     width: 600px;
     margin: 0 auto;
+    background-color: #C2E0FF;
+}
+
+#place-form {
+    margin: 40px 10px;
+}
+
+#places {
+    margin: 10px 10px;
+}
+
+#map-view {
+    overflow: hidden;
+    min-height: 400px;
+    padding: 10px;
 }

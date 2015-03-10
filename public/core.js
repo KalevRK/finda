@@ -37,4 +37,21 @@ function mainController($scope, $http) {
             console.log('Error: ' + data);
           });
       };
-}
+};
+
+
+// Google Maps
+function initialize() {
+    console.log('Initialized map');
+    var mapOptions = {
+        center: {
+            lat: 37.782,
+            lng: -122.411
+        },
+        zoom: 13
+    };
+    var map = new google.maps.Map(document.getElementById('map-view'), mapOptions);
+};
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
