@@ -14,8 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 app.use(methodOverride());
 
-app.listen(5309);
-console.log('Listening on port 5309');
+
 
 // Mongoose model
 var Place = mongoose.model('Place', {
@@ -73,3 +72,13 @@ app.delete('/api/places/:place_id', function(req, res){
     });
   });
 });
+
+
+// Serve up home page
+app.get('*', function(req, res) {
+    res.sendfile('./public/index.html');
+})
+
+// listen on server
+app.listen(5309);
+console.log('Listening on port 5309');

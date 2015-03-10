@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="kalevApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalev Roomann-Kurrik's App for Finding Cool Places</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+      html { overflow-y:scroll; }
+      body { padding-top:50px; }
+      #todo-list { margin-bottom:30px; }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="core.js"></script>
+  </head>
+  <body ng-controller="mainController">
+    <div class="container">
+      
+      <!-- Header -->
+      <div class="jumbotron text-center">
+        <h1>Kalev's App - Places <span class="label label-info"> {{ places.length }}</span></h1>
+      </div>
+
+      <!-- Places List -->
+      <div id="places-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="checkbox" ng-repeat="place in places">
+                <label>
+                    <input type="checkbox" ng-click="deletePlace(place._id)"> {{ place.name }}
+                </label>
+            </div>
+        </div>
+      </div>
+
+      <!-- Form to Create Places -->
+      <div id="place-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg text-center" placeholder="Enter your place name here" ng-model="formData.name">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createPlace()">Add</button>
+            </form>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
