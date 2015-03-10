@@ -58,8 +58,30 @@ app.post('/api/places', function(req, res) {
 });
 
 app.put('/api/places/:place_id', function(req, res){
-    
-})
+    Place.find({_id: req.params.place_id}, function(err, place) {
+      if (err) {
+        res.send(err);
+      }
+
+      Place.update({
+        name: req.body.name,
+        place_id: req.body.place_id,
+        votes: req.body.votes
+      }, function (err, place) {
+        if (err) {
+            res.send(err);
+        }
+
+        Place.find(function(err, places) {
+          if (err) {
+            res.send(err);
+          }
+
+          res.json(places);
+        });
+      });
+    });
+});
 
 // DELETE a place
 app.delete('/api/places/:place_id', function(req, res){

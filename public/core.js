@@ -63,7 +63,10 @@ function mainController($scope, $http) {
       $scope.incrementVotes = function(place) {
         place.votes++;
 
-        // $http.put('/api/places/' + place._id, place)
+        console.log('/api/places/' + place._id);
+
+
+        $http.put('/api/places/' + place._id, place)
         //       .success(function(data) {
         //         $scope.places = data;
         //         console.log(data);
