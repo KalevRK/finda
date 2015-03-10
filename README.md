@@ -9,5 +9,6 @@
 - COMPLETE - Add a Google Map to the page
 - COMPLETE - Have a place showup on the Google Map when a user clicks on it
 - COMPLETE - Allow user to click on a place in the list and have map focus on that place's location
-- Add vote count to each place in list
-- Add ability to click on vote count and increment
+- COMPLETE - Add vote count to each place in list
+- COMPLETE - Add ability to click on vote count and increment
+- Style page using CSS and bootstrap

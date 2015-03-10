@@ -15,7 +15,6 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 app.use(methodOverride());
 
 
-
 // Mongoose model
 var Place = mongoose.model('Place', {
     name: String,

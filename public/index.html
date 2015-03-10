@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="kalevApp">
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Lato|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kalev Roomann-Kurrik's App for Finding Really Cool Places</title>
@@ -16,7 +17,7 @@
 
         <!-- Header -->
         <div class="jumbotron text-center narrowjumbo">
-          <h1>Kalev Roomann-Kurrik's App for Finding Really Cool Places</h1>
+          <h1>Kalev<br>Roomann-Kurrik's App for Finding Really Cool Places</h1>
         </div>
 
         <!-- Form to Create Places -->
@@ -38,9 +39,9 @@
           <!-- Places List -->
           <div id="places-list" class="col-sm-6">
             <div ng-repeat="place in places">
-              <label ng-click="focusPlace(place.place_id)"> {{ place.name }}
+              <label class="place-name" ng-click="focusPlace(place.place_id)"> {{ place.name }}
               </label>
-              <label ng-click="incrementVotes(place)"> {{ place.votes }} </label>
+              <label class="vote-count" ng-click="incrementVotes(place)"> Votes: <span class="votes"> {{ place.votes }} </span> </label>
             </div>
           </div>
 
