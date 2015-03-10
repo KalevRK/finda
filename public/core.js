@@ -15,6 +15,18 @@ function mainController($scope, $http) {
 
       // handle creating a new place 
       $scope.createPlace = function() {
+
+        console.log('name: ', $scope.formData.name);
+
+        // query Google Places API to get place to show on map
+        var request = {
+          query: $scope.formData.name,
+          location: mapOptions.center,
+          radius: 1000,
+        };
+
+        searchMap(request);
+
         $http.post('/api/places', $scope.formData)
           .success(function(data) {
             $scope.formData = {};
@@ -39,18 +51,50 @@ function mainController($scope, $http) {
       };
 };
 
+var map;
+var mapOptions;
+var infowindow;
+var service;
 
 // Google Maps
 function initialize() {
     console.log('Initialized map');
-    var mapOptions = {
+    mapOptions = {
         center: {
             lat: 37.782,
             lng: -122.411
         },
         zoom: 13
     };
-    var map = new google.maps.Map(document.getElementById('map-view'), mapOptions);
+    map = new google.maps.Map(document.getElementById('map-view'), mapOptions);
+
+    infowindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+};
+
+function searchMap(request) {
+  service.textSearch(request, callback);
+};
+
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+    }
+};
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
 };
 
 google.maps.event.addDomListener(window, 'load', initialize);

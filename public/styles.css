@@ -7,9 +7,9 @@ body {
 }
 
 .jumbotron.text-center.narrowjumbo {
-    width: 600px;
+    width: 700px;
     margin: 0 auto;
-    background-color: #C2E0FF;
+    background-color: #77DDFC;
 }
 
 #place-form {
