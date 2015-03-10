@@ -18,7 +18,8 @@ app.use(methodOverride());
 
 // Mongoose model
 var Place = mongoose.model('Place', {
-    name: String
+    name: String,
+    place_id: String
 });
 
 // routes
@@ -37,7 +38,8 @@ app.get('/api/places', function(req, res) {
 // POST a new place
 app.post('/api/places', function(req, res) {
   Place.create({
-    name: req.body.name
+    name: req.body.name,
+    place_id: req.body.place_id
   }, function (err, place) {
     if (err) {
         res.send(err);

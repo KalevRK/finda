@@ -25,36 +25,43 @@ function mainController($scope, $http) {
           radius: 1000,
         };
 
-        searchMap(request);
+        searchMap(request, function(results, status) {
+          
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            createMarker(results[0]);
 
-        $http.post('/api/places', $scope.formData)
-          .success(function(data) {
-            $scope.formData = {};
-            $scope.places = data;
-            console.log(data);
-          })
-          .error(function(data) {
-            console.log('Error: ' + data);
-          });
+            $scope.formData.place_id = results[0].place_id;
+
+            console.log('$scope.formData: ', $scope.formData);
+
+            $http.post('/api/places', $scope.formData)
+              .success(function(data) {
+                $scope.formData = {};
+                $scope.places = data;
+                console.log(data);
+              })
+              .error(function(data) {
+                console.log('Error: ' + data);
+              });
+          }
+        });
       };
 
-      // handle deleting a place
-      $scope.deletePlace = function(id) {
-        $http.delete('/api/places/' + id)
-          .success(function(data) {
-            $scope.places = data;
-            console.log(data);
-          })
-          .error(function(data) {
-            console.log('Error: ' + data);
-          });
+      // focus the map on the clicked place
+      $scope.focusPlace = function(id) {
+
+         console.log(id);
+         centerMap(id);
       };
 };
 
 var map;
 var mapOptions;
 var infowindow;
+var marker;
+var markers = [];
 var service;
+var current_place_id;
 
 // Google Maps
 function initialize() {
@@ -72,28 +79,42 @@ function initialize() {
     service = new google.maps.places.PlacesService(map);
 };
 
-function searchMap(request) {
+function searchMap(request, callback) {
   service.textSearch(request, callback);
 };
 
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-    }
-};
-
 function createMarker(place) {
+
   var placeLoc = place.geometry.location;
-  var marker = new google.maps.Marker({
+  marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
 
+  markers.push(marker);
+
+  map.setCenter(marker.getPosition())
+
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
+  });
+};
+
+function centerMap(id) {
+
+  var request = {
+        placeId: id
+  };
+
+  console.log(request);
+
+  service.getDetails(request, function (place, status) {
+    console.log(place);
+    console.log(status);
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      map.setCenter(place.geometry.location);
+    }
   });
 };
 

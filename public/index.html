@@ -38,7 +38,7 @@
           <!-- Places List -->
           <div id="places-list" class="col-sm-6">
             <div ng-repeat="place in places">
-              <label ng-click="deletePlace(place._id)"> {{ place.name }}
+              <label ng-click="focusPlace(place.place_id)"> {{ place.name }}
               </label>
             </div>
           </div>
