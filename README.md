@@ -11,4 +11,4 @@
 - COMPLETE - Allow user to click on a place in the list and have map focus on that place's location
 - COMPLETE - Add vote count to each place in list
 - COMPLETE - Add ability to click on vote count and increment
-- Style page using CSS and bootstrap
+- COMPLETE - Style page using CSS and bootstrap
