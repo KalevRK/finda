@@ -20,7 +20,8 @@
       
       <!-- Header -->
       <div class="jumbotron text-center">
-        <h1>Kalev's App - Places <span class="label label-info"> {{ places.length }}</span></h1>
+        <h1>Kalev Roomann-Kurrik's App for Finding Cool Places</h1>
+            <h2>Places:<span class="label label-info"> {{ places.length }}</span></h2>
       </div>
 
       <!-- Places List -->
@@ -38,10 +39,10 @@
       <div id="place-form" class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
             <form>
-                <div class="form-group">
-                    <input type="text" class="form-control input-lg text-center" placeholder="Enter your place name here" ng-model="formData.name">
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="Enter your place name here" ng-model="formData.name">
+                    <span class="input-group-btn"><button type="submit" class="btn btn-primary btn-lg" ng-click="createPlace()">Add</button></span>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg" ng-click="createPlace()">Add</button>
             </form>
         </div>
       </div>
