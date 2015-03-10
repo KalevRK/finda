@@ -7,7 +7,19 @@ function mainController($scope, $http) {
     $http.get('/api/places')
       .success(function(data) {
         $scope.places = data;
-        console.log(data);
+
+        for (var i = 0; i < $scope.places.length; i++) {
+
+          var request = {
+            placeId: $scope.places[i].place_id
+          };
+
+          service.getDetails(request, function (place, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+              createMarker(place);
+            }
+          });
+        }
       })
       .error(function(data) {
         console.log('Error: ' + data);
@@ -15,8 +27,6 @@ function mainController($scope, $http) {
 
       // handle creating a new place 
       $scope.createPlace = function() {
-
-        console.log('name: ', $scope.formData.name);
 
         // query Google Places API to get place to show on map
         var request = {
@@ -32,13 +42,10 @@ function mainController($scope, $http) {
 
             $scope.formData.place_id = results[0].place_id;
 
-            console.log('$scope.formData: ', $scope.formData);
-
             $http.post('/api/places', $scope.formData)
               .success(function(data) {
                 $scope.formData = {};
                 $scope.places = data;
-                console.log(data);
               })
               .error(function(data) {
                 console.log('Error: ' + data);
@@ -49,10 +56,23 @@ function mainController($scope, $http) {
 
       // focus the map on the clicked place
       $scope.focusPlace = function(id) {
-
-         console.log(id);
          centerMap(id);
       };
+
+      // increment the vote count on the place whose vote count was clicked
+      $scope.incrementVotes = function(place) {
+        place.votes++;
+
+        // $http.put('/api/places/' + place._id, place)
+        //       .success(function(data) {
+        //         $scope.places = data;
+        //         console.log(data);
+        //       })
+        //       .error(function(data) {
+        //         console.log('Error: ' + data);
+        //       });
+
+      }
 };
 
 var map;
@@ -65,7 +85,6 @@ var current_place_id;
 
 // Google Maps
 function initialize() {
-    console.log('Initialized map');
     mapOptions = {
         center: {
             lat: 37.782,
@@ -107,11 +126,7 @@ function centerMap(id) {
         placeId: id
   };
 
-  console.log(request);
-
   service.getDetails(request, function (place, status) {
-    console.log(place);
-    console.log(status);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       map.setCenter(place.geometry.location);
     }

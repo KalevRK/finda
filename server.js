@@ -19,7 +19,8 @@ app.use(methodOverride());
 // Mongoose model
 var Place = mongoose.model('Place', {
     name: String,
-    place_id: String
+    place_id: String,
+    votes: {type: Number, default: 0}
 });
 
 // routes
@@ -55,6 +56,10 @@ app.post('/api/places', function(req, res) {
 
   });
 });
+
+app.put('/api/places/:place_id', function(req, res){
+    
+})
 
 // DELETE a place
 app.delete('/api/places/:place_id', function(req, res){
