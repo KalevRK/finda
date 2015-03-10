@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kalev Roomann-Kurrik's App for Finding Cool Places</title>
+    <title>Kalev Roomann-Kurrik's App for Finding Really Cool Places</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <style>
       html { overflow-y:scroll; }
       body { padding-top:50px; }
@@ -13,40 +14,49 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<PLACEHOLDER>"></script>
     <script src="core.js"></script>
+    <script src="../maps.js"></script>
   </head>
   <body ng-controller="mainController">
     <div class="container">
       
-      <!-- Header -->
-      <div class="jumbotron text-center">
-        <h1>Kalev Roomann-Kurrik's App for Finding Cool Places</h1>
+        <!-- Header -->
+        <div class="jumbotron text-center narrowjumbo">
+          <h1>Kalev Roomann-Kurrik's App for Finding Really Cool Places</h1>
             <h2>Places:<span class="label label-info"> {{ places.length }}</span></h2>
-      </div>
-
-      <!-- Places List -->
-      <div id="places-list" class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-            <div class="checkbox" ng-repeat="place in places">
-                <label>
-                    <input type="checkbox" ng-click="deletePlace(place._id)"> {{ place.name }}
-                </label>
-            </div>
         </div>
-      </div>
 
-      <!-- Form to Create Places -->
-      <div id="place-form" class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
+        <!-- Form to Create Places -->
+        <div id="place-form" class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
             <form>
                 <div class="input-group">
                     <input type="text" class="form-control input-lg" placeholder="Enter your place name here" ng-model="formData.name">
-                    <span class="input-group-btn"><button type="submit" class="btn btn-primary btn-lg" ng-click="createPlace()">Add</button></span>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-lg" ng-click="createPlace()">Add</button>
+                    </span>
                 </div>
             </form>
+          </div>
         </div>
-      </div>
 
+        <!-- Places -->
+        <div id="places" class="row">
+          <!-- Places List -->
+          <div id="places-list" class="col-sm-6">
+            <div ng-repeat="place in places">
+              <label ng-click="deletePlace(place._id)"> {{ place.name }}
+              </label>
+            </div>
+          </div>
+      
+          <!-- Map View -->
+          <div id="map-view" class="col-sm-6">
+            <div id="map">
+            </div>
+          </div>
+        </div>
     </div>
 
   </body>
