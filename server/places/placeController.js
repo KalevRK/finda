@@ -61,6 +61,10 @@ module.exports = {
   // update the vote count on an existing place
   updateVoteCount: function(req, res, next) {
 
+    // bind the Mongoose find method for the Place model
+    // to allow for use of promises
+    var findAllPlaces = Q.nbind(Place.find, Place);
+
     // bind the Mongoose findOneAndUpdate method for the Place model
     // to allow for use of promises
     var updatePlaceVoteCount = Q.nbind(Place.findOneAndUpdate, Place);

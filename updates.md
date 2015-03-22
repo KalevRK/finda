@@ -3,9 +3,9 @@
 ## Clean-up ##
 
 DONE - Remove any extraneous code
-- Break out backend into a structure with routers, controllers, models
-- Use Q library for promises rather than relying on callbacks
-- Modify db connection to connect to either remote db or local db
+DONE - Break out backend into a structure with routers, controllers, models
+DONE - Use Q library for promises rather than relying on callbacks
+DONE - Modify db connection to connect to either remote db or local db
 - Break out frontend into a structure with app, controllers, utility methods
 
 

@@ -83,8 +83,6 @@ function mainController($scope, $http) {
       // to not rely on the updated vote count from the client
       $http.post('/api/places/' + place._id, place)
              .success(function(data) {
-               // $scope.places = data;
-               console.log(data);
              })
              .error(function(data) {
                console.log('Error: ' + data);
@@ -94,7 +92,6 @@ function mainController($scope, $http) {
       $http.get('/api/places')
             .success(function(data) {
               $scope.places = data;
-              console.log(data);
             })
             .error(function(data) {
                console.log('Error: ' + data);

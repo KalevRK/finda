@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // define the schema for the Place model
-var placeSchema = new mongoose.Schema({
+var PlaceSchema = new mongoose.Schema({
   name: String,
   place_id: String,
   votes: {type: Number, default: 0}

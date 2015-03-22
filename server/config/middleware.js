@@ -6,10 +6,9 @@ module.exports = function(app, express) {
 
   var placeRouter = express.Router();
 
-  // serve up static content from /public directory
-  app.use(express.static(__dirname + '/public'));
   // log all requests using the dev format
   app.use(morgan('dev'));
+
   // parse JSON request bodies for POST requests
   app.use(bodyParser.json());
 
