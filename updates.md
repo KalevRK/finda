@@ -16,6 +16,10 @@ DONE - Remove any extraneous code
 DONE - Have markers appear each time that the page is refreshed
 
 
+## Updates ##
+
+- Sort the list of places by vote count
+
 ## Tests ##
 
 - Write backend tests using mocha, chai, and supertest
