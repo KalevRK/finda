@@ -1,4 +1,4 @@
-#Kalev Roomann-Kurrik's App for Finding Places That Are Really Cool
+#Kalev Roomann-Kurrik's App for Finding Really Cool Places
 
 #Critical Path
 - COMPLETE - Determine what data is provided by the Google Places API and how to request it

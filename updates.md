@@ -12,7 +12,7 @@ DONE - Modify db connection to connect to either remote db or local db
 ## Fixes ##
 
 - Do not send updated vote count from client
-- Have backend receive request to update vote count and call methods to update it
+DONE - Have backend receive request to update vote count and call methods to update it
 DONE - Have markers appear each time that the page is refreshed
 
 
