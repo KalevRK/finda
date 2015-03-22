@@ -2,7 +2,7 @@
 
 ## Clean-up ##
 
-- Remove any extraneous code
+DONE - Remove any extraneous code
 - Break out backend into a structure with routers, controllers, models
 - Use Q library for promises rather than relying on callbacks
 - Modify db connection to connect to either remote db or local db
@@ -13,7 +13,7 @@
 
 - Do not send updated vote count from client
 - Have backend receive request to update vote count and call methods to update it
-- Have markers appear each time that the page is refreshed
+DONE - Have markers appear each time that the page is refreshed
 
 
 ## Tests ##
