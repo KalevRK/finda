@@ -19,6 +19,7 @@ DONE - Have markers appear each time that the page is refreshed
 ## Updates ##
 
 - Sort the list of places by vote count
+- Have the Google Maps infobox display more information about each place
 
 ## Tests ##
 
