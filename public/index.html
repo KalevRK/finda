@@ -40,16 +40,16 @@
         <!-- Places -->
         <div id="places" class="row">
           <!-- Places List -->
-          <div id="places-list" class="col-sm-6">
+          <div id="places-list" class="col-sm-7">
             <div ng-repeat="place in data.places">
               <label class="place-name" ng-click="focusPlace(place.place_id)"> {{ place.name }}
               </label>
-              <label class="vote-count" ng-click="incrementVotes(place)"> Votes: <span class="votes"> {{ place.votes }} </span> </label>
+              <label class="vote-count"> Votes: <span class="votes"> {{ place.votes }} </span><span class="vote-inc" ng-click="incrementVotes(place)">+</span></label>
             </div>
           </div>
 
           <!-- Map View -->
-          <div id="map-view" class="col-sm-6">
+          <div id="map-view" class="col-sm-5">
           </div>
       
     </div>

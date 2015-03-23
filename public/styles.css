@@ -12,10 +12,15 @@ h1 {
 }
 
 label.place-name {
-    width: 400px;
+    width: 470px;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 24px;
+}
+
+label.place-name:hover {
+    cursor: pointer;
+    color: #0D0DBA;
 }
 
 label.vote-count {
@@ -32,6 +37,10 @@ label.vote-count {
 
 .votes {
     font-weight: 700;
+}
+
+.vote-inc:hover {
+    cursor: pointer;
 }
 
 #place-form {
