@@ -7,7 +7,7 @@ var app = express();
 // create the Mongoose connection to the MongoDB
 // Be able to connect to the hosted MongoDB when deployed
 // or the local MongoDB when run locally
-mongoURI = process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'mongodb://localhost:27017/mvp';
+mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/mvp';
 mongoose.connect(mongoURI);
 
 // confirm that the database connection is open
