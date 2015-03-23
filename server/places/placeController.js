@@ -37,23 +37,33 @@ module.exports = {
       place_id: req.body.place_id
     };
 
-    createPlace(newPlace)
-      .then(function(createdPlace) {
-        if (createdPlace) {
-            // if the new Place was create successfully in
-            // the database then retrieve all of the places
-            // and send back to the client
-            findAllPlaces({})
-              .then(function(places) {
-                // send back the list of places as JSON
-                res.json(places);
-              })
-              .fail(function(err) {
-                next(err);
-              });
+
+    // check to see if the place already exists in the database
+    findAllPlaces({ 'place_id': req.body.place_id})
+      .then(function(place) {
+        if(place.length === 0) {
+          // if the place does not exist yet in the database then create it
+          createPlace(newPlace)
+            .then(function(createdPlace) {
+              if (createdPlace) {
+                // if the new Place was create successfully in
+                // the database then retrieve all of the places
+                // and send back to the client
+                findAllPlaces({})
+                  .then(function(places) {
+                    // send back the list of places as JSON
+                    res.json(places);
+                  })
+                  .fail(function(err) {
+                    next(err);
+                  });
+              }
+            })
+            .fail(function(err) {
+              next(err);
+            });  
         }
-      })
-      .fail(function(err) {
+      }).fail(function(err) {
         next(err);
       });
   },
