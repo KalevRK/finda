@@ -74,8 +74,8 @@ appServices.factory('Google', function() {
     service.textSearch(request, callback);
   };
 
-  // get and set the marker for places that already exist in the database
-  var getMarker = function(place) {
+  // get the details for a place and add a marker for it to the map
+  var addToMap = function(place) {
     // makes requests to the Google Places API using the place_id
     // stored in the database for each place in the list
     var request = {
@@ -105,7 +105,11 @@ appServices.factory('Google', function() {
     map.setCenter(marker.getPosition())
 
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
+      var isOpen = place.opening_hours.open_now ? 'Yes' : 'No';
+      infowindow.setContent('<b>' + place.name + '</b>' + '<br>' +
+                            place.address_components[0].short_name + ' ' +
+                            place.address_components[1].short_name + '<br>' +
+                            place.formatted_phone_number + '<br>Open Now: ' + isOpen);
       infowindow.open(map, this);
     });
   };
@@ -127,8 +131,7 @@ appServices.factory('Google', function() {
   return {
     initialize: initialize,
     searchMap: searchMap,
-    getMarker: getMarker,
-    createMarker: createMarker,
+    addToMap: addToMap,
     centerMap: centerMap
   };
 

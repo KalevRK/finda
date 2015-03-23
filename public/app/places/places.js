@@ -19,7 +19,7 @@ angular.module('kalevApp.places', [])
             // get the place details for each place in the list
             // by making requests to the Google Places API
             for (var i = 0; i < $scope.data.places.length; i++) {
-              Google.getMarker($scope.data.places[i]);
+              Google.addToMap($scope.data.places[i]);
             }
         }).error(function(res, status){
           console.log(status);
@@ -36,7 +36,7 @@ angular.module('kalevApp.places', [])
         Google.searchMap($scope.formData.name, function(results, status) {
         
           if (status == google.maps.places.PlacesServiceStatus.OK) {
-            Google.createMarker(results[0]);
+            Google.addToMap(results[0]);
 
             $scope.formData.place_id = results[0].place_id;
 
