@@ -19,14 +19,14 @@ DONE - Have markers appear each time that the page is refreshed
 ## Updates ##
 
 DONE - Sort the list of places by vote count
-- Have the Google Maps infobox display more information about each place
+DONE - Have the Google Maps infobox display more information about each place
 
 ## Tests ##
 
-- Write backend tests using mocha, chai, and supertest
+DONE - Write backend tests using mocha, chai, and supertest
 
 
 ## Deployment ##
 
-- Integrate with a CI program
-- Deploy using Heroku
+DONE - Enable continuous deployment
+DONE - Deploy using Heroku
