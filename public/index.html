@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="kalevApp">
+<html>
   <head>
     <link href='http://fonts.googleapis.com/css?family=Lato|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script src="app/core.js"></script>
+    <script src="common/services.js"></script>
+    <script src="app/places/places.js"></script>
   </head>
-  <body ng-controller="mainController">
+  <body ng-app="kalevApp" ng-controller="mainController">
     <div class="container">
 
         <!-- Header -->
@@ -38,7 +41,7 @@
         <div id="places" class="row">
           <!-- Places List -->
           <div id="places-list" class="col-sm-6">
-            <div ng-repeat="place in places">
+            <div ng-repeat="place in data.places">
               <label class="place-name" ng-click="focusPlace(place.place_id)"> {{ place.name }}
               </label>
               <label class="vote-count" ng-click="incrementVotes(place)"> Votes: <span class="votes"> {{ place.votes }} </span> </label>
